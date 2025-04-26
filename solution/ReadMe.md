@@ -149,3 +149,24 @@
 |[83.cpp](https://github.com/dremdeveloper/codingtest_cpp/blob/main/solution/83.cpp)|구명보트|⭐|https://school.programmers.co.kr/learn/courses/30/lessons/42885|
 |[84.cpp](https://github.com/dremdeveloper/codingtest_cpp/blob/main/solution/84.cpp)|귤 고르기|⭐⭐|https://school.programmers.co.kr/learn/courses/30/lessons/138476|
 |[85.cpp](https://github.com/dremdeveloper/codingtest_cpp/blob/main/solution/85.cpp)|기지국 설치|⭐⭐|https://programmers.co.kr/learn/courses/30/lessons/12979|
+
+
+
+## 누락
+
+| 파일명  | 문제 | 난이도 | 비고 |
+| ------- | ---- | ------ | ---- |
+| 86.cpp  |      |        |      |
+| 87.cpp  |      |        |      |
+| 88.cpp  |      |        |      |
+| 90.cpp  |      |        |      |
+| 91.cpp  |      |        |      |
+| 92.cpp  |      |        |      |
+| 93.cpp  |      |        |      |
+| 94.cpp  |      |        |      |
+| 95.cpp  |      |        |      |
+| 96.cpp  |      |        |      |
+| 97.cpp  |      |        |      |
+| 98.cpp  |      |        |      |
+| 99.cpp  |      |        |      |
+| 100.cpp |      |        |      |

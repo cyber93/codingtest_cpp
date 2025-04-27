@@ -1,4 +1,4 @@
-#include <stack>
+﻿#include <stack>
 using namespace std;
 
 // 'solution' 함수는 문자열 's'가 올바른 괄호 구조를 가지고 있는지 확인합니다.

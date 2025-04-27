@@ -1,7 +1,7 @@
-#include <vector>
+﻿#include <vector>
 using namespace std;
 
-// ❶ 노드를 정의
+// ???몃뱶瑜??뺤쓽
 class Node {
 public:
   int val;
@@ -10,7 +10,7 @@ public:
   Node(int key) : val(key), left(nullptr), right(nullptr) {}
 };
 
-//❷ 이진 탐색 트리 정의
+//???댁쭊 ?먯깋 ?몃━ ?뺤쓽
 class BST {
 private:
   Node* root;
@@ -20,7 +20,7 @@ private:
     if (!node) {
       return new Node(key);
     }
-    //❸ 키 값과 현재 노드의 값을 비교해서 이진탐색트리 규칙에 맞는 위치로 이동
+    //????媛믨낵 ?꾩옱 ?몃뱶??媛믪쓣 鍮꾧탳?댁꽌 ?댁쭊?먯깋?몃━ 洹쒖튃??留욌뒗 ?꾩튂濡??대룞
     if (key < node->val) {
       node->left = insertNode(node->left, key);
     } else {
@@ -30,15 +30,15 @@ private:
   }
 
   bool searchNode(Node* node, int key) {
-    //❹ 찾는 키 값이 없는 경우 
+    //??李얜뒗 ??媛믪씠 ?녿뒗 寃쎌슦 
     if (!node) {
       return false;
     }
-    //❺ 이진탐색트리에서 키 값을 찾은 경우
+    //???댁쭊?먯깋?몃━?먯꽌 ??媛믪쓣 李얠? 寃쎌슦
     if (key == node->val) {
       return true;
     }
-    //❻ 아직 값을 찾지 못한 경우, 현재 노드값과 key 값을 비교해서, 어느 노드에서 탐색할지 결정
+    //???꾩쭅 媛믪쓣 李얠? 紐삵븳 寃쎌슦, ?꾩옱 ?몃뱶媛믨낵 key 媛믪쓣 鍮꾧탳?댁꽌, ?대뒓 ?몃뱶?먯꽌 ?먯깋?좎? 寃곗젙
     return key < node->val ? 
            searchNode(node->left, key) : 
            searchNode(node->right, key);
@@ -58,13 +58,13 @@ public:
 
 vector<bool> solution(vector<int> lst, vector<int> search_lst) {
   BST bst;
-  // 이진 탐색 트리에 노드 삽입
+  // ?댁쭊 ?먯깋 ?몃━???몃뱶 ?쎌엯
   for (int key : lst) {
     bst.insert(key);
   }
 
   vector<bool> result;
-  // 이진 탐색 트리에서 찾는 값이 있는지 확인하고 탐색결과를 result에 추가
+  // ?댁쭊 ?먯깋 ?몃━?먯꽌 李얜뒗 媛믪씠 ?덈뒗吏 ?뺤씤?섍퀬 ?먯깋寃곌낵瑜?result??異붽?
   for (int search_val : search_lst) {
     result.push_back(bst.search(search_val));
   }
@@ -72,7 +72,7 @@ vector<bool> solution(vector<int> lst, vector<int> search_lst) {
   return result;
 }
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iterator>
 #include <iostream>
 void print(vector<bool> vec)
@@ -83,8 +83,8 @@ void print(vector<bool> vec)
 
 int main()
 {
-    // bool을 출력할 때 true는 1 false는 0 입니다.
-    print(solution({5, 3, 8, 4, 2, 1, 7, 10}, {1, 2, 5, 6})); //출력값 : 1 1 1 0
-    print(solution({1, 3, 5, 7, 9}, {2, 4, 6, 8, 10})); //출력값 : 0 0 0 0 0    
+    // bool??異쒕젰????true??1 false??0 ?낅땲??
+    print(solution({5, 3, 8, 4, 2, 1, 7, 10}, {1, 2, 5, 6})); //異쒕젰媛?: 1 1 1 0
+    print(solution({1, 3, 5, 7, 9}, {2, 4, 6, 8, 10})); //異쒕젰媛?: 0 0 0 0 0    
     return 0;
 }

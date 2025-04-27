@@ -1,12 +1,12 @@
-#include <vector>
+﻿#include <vector>
 #include <algorithm>
 using namespace std;
 
 int solution(vector<vector<int>> land) {
-  // ➊ 각 행마다 이전 행에서의 최대 점수를 더해가며 최대 점수 누적
+  // ??媛??됰쭏???댁쟾 ?됱뿉?쒖쓽 理쒕? ?먯닔瑜??뷀빐媛硫?理쒕? ?먯닔 ?꾩쟻
   for (int i = 1; i < land.size(); ++i) {
     for (int j = 0; j < 4; ++j) {
-      // ➋ 이전 행에서 현재 열의 값을 제외한 나머지 열들 중에서 가장 큰 값을 더함
+      // ???댁쟾 ?됱뿉???꾩옱 ?댁쓽 媛믪쓣 ?쒖쇅???섎㉧吏 ?대뱾 以묒뿉??媛????媛믪쓣 ?뷀븿
       int maxVal = 0;
       for (int k = 0; k < 4; ++k) {
         if (k != j) {
@@ -16,20 +16,20 @@ int solution(vector<vector<int>> land) {
       land[i][j] += maxVal;
     }
   }
-  // ➌ 마지막 행에서 얻을 수 있는 최대 점수를 반환
+  // ??留덉?留??됱뿉???살쓣 ???덈뒗 理쒕? ?먯닔瑜?諛섑솚
   return *max_element(land.back().begin(), land.back().end());
 }
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-  cout << solution({{1, 2, 3, 5}, {5, 6, 7, 8}, {4, 3, 2, 1}}) << endl; //출력값 : 16
+  cout << solution({{1, 2, 3, 5}, {5, 6, 7, 8}, {4, 3, 2, 1}}) << endl; //異쒕젰媛?: 16
   
   return 0;
 }

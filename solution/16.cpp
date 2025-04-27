@@ -1,4 +1,4 @@
-#include <vector>
+﻿#include <vector>
 #include <cmath>
 using namespace std;
 
@@ -7,26 +7,26 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
     int n = progresses.size();
     vector<int> days_left(n); 
 
-    //❶ 각 작업에 대한 완료까지 남은 일수 계산
+    //??媛??묒뾽??????꾨즺源뚯? ?⑥? ?쇱닔 怨꾩궛
     for (int i = 0; i < n; ++i) {
         days_left[i] = ceil((100.0 - progresses[i]) / speeds[i]);
     }
 
-   int count = 0; //❷ 배포 될 작업의 수
-    int max_day = days_left[0]; // ❸ 현재 배포될 작업 중 가장 늦게 배포될 작업의 가능일
+   int count = 0; //??諛고룷 ???묒뾽????
+    int max_day = days_left[0]; // ???꾩옱 諛고룷???묒뾽 以?媛????쾶 諛고룷???묒뾽??媛?μ씪
     
 
     for (int i = 0; i < n; ++i) {
-        if (days_left[i] <= max_day) { //❹ 배포 가능일이 가장 늦은 배포일보다 빠르면
+        if (days_left[i] <= max_day) { //??諛고룷 媛?μ씪??媛????? 諛고룷?쇰낫??鍮좊Ⅴ硫?
             count++;
-        } else { //❺ 배포 예정일이 기준 배포일보다 느리면
+        } else { //??諛고룷 ?덉젙?쇱씠 湲곗? 諛고룷?쇰낫???먮━硫?
             answer.push_back(count);
             count = 1;
             max_day = days_left[i];
         }
     }
 
-    answer.push_back(count); //❻ 마지막으로 카운트된 작업들을 함께 배포
+    answer.push_back(count); //??留덉?留됱쑝濡?移댁슫?몃맂 ?묒뾽?ㅼ쓣 ?④퍡 諛고룷
     return answer;
 }
 
@@ -35,7 +35,7 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 #include <iterator>
 

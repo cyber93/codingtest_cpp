@@ -1,4 +1,4 @@
-#include <vector>
+﻿#include <vector>
 using namespace std; // using 지시문 추가
 
 int solution(int n) {

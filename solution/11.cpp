@@ -1,4 +1,4 @@
-#include<string>
+﻿#include<string>
 #include<stack>
 using namespace std;
 
@@ -7,20 +7,20 @@ int solution(string s)
      stack<char> st;
 
     for(int i=0;i<s.length();i++){
-       //❶스택이 비었거나 현재문자와같은 문자가 아닌 경우 푸시
+       //?띠뒪?앹씠 鍮꾩뿀嫄곕굹 ?꾩옱臾몄옄?媛숈? 臾몄옄媛 ?꾨땶 寃쎌슦 ?몄떆
         if(st.empty() || st.top() != s[i]) st.push(s[i]);
-      //❷ 현재문자와 스택의 가장 최근 문자가 같은 경우 팝
+      //???꾩옱臾몄옄? ?ㅽ깮??媛??理쒓렐 臾몄옄媛 媛숈? 寃쎌슦 ??
         else st.pop();
     }
    
 
-   //❸ 현재 스택이 비었거나, 문자열의 짝이 맞다는 의미이므로 true반환, 아니면 false 반환
+   //???꾩옱 ?ㅽ깮??鍮꾩뿀嫄곕굹, 臾몄옄?댁쓽 吏앹씠 留욌떎???섎??대?濡?true諛섑솚, ?꾨땲硫?false 諛섑솚
     return st.empty();
 }
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 int main()

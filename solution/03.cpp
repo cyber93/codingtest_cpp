@@ -1,22 +1,22 @@
-#include <vector>
+﻿#include <vector>
 #include <set>
 
 using namespace std;
 
 vector<int> solution(vector<int> numbers) { 
-    set<int> sum; // ❶ 두 수의 합을 저장할 저장공간 선언
+    set<int> sum; // ?????섏쓽 ?⑹쓣 ??ν븷 ??κ났媛??좎뼵
 
-    for(int i = 0;i<numbers.size();++i)  // ❷ 반복문을 수행하면서 두 수의 합을 저장
+    for(int i = 0;i<numbers.size();++i)  // ??諛섎났臾몄쓣 ?섑뻾?섎㈃?????섏쓽 ?⑹쓣 ???
         for(int j = i+1 ; j< numbers.size();++j)
            sum.insert(numbers[i] + numbers[j]); 
 
-    vector<int> answer(sum.begin(), sum.end()); // ❸ 반환타입을 맞추기 위헤 벡터로 변환
+    vector<int> answer(sum.begin(), sum.end()); // ??諛섑솚??낆쓣 留욎텛湲??꾪뿤 踰≫꽣濡?蹂??
     return answer; 
 }
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 
 #include <iterator>
 #include <iostream>

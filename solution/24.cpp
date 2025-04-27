@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <unordered_map>
 #include <sstream>
@@ -10,11 +10,11 @@ vector<string> solution(vector<string> record) {
   unordered_map<string, string> uid;
 
   for (const auto& line : record) {
-    //❶ 각 record에 대해서,  cmd에는 명령어를 저장하고  id에는 닉네임을 저장
+    //??媛?record????댁꽌,  cmd?먮뒗 紐낅졊?대? ??ν븯怨? id?먮뒗 ?됰꽕?꾩쓣 ???
     stringstream ss(line);
     string cmd, id, nickname;
     ss >> cmd >> id;
-    //❷ 명령어가 Enter 혹은 Change일 경우 nickname에 닉네임을 저장
+    //??紐낅졊?닿? Enter ?뱀? Change??寃쎌슦 nickname???됰꽕?꾩쓣 ???
     if (cmd != "Leave") {
       ss >> nickname;
       uid[id] = nickname;
@@ -25,19 +25,19 @@ vector<string> solution(vector<string> record) {
     stringstream ss(line);
     string cmd, id;
     ss >> cmd >> id;
-    //❸ Enter 및 Change 명령어의 경우 최종 닉네임과 정해진 문자열을 answer에 추가
+    //??Enter 諛?Change 紐낅졊?댁쓽 寃쎌슦 理쒖쥌 ?됰꽕?꾧낵 ?뺥빐吏?臾몄옄?댁쓣 answer??異붽?
     if (cmd == "Enter") {
-      answer.push_back(uid[id] + "님이 들어왔습니다.");
+      answer.push_back(uid[id] + "?섏씠 ?ㅼ뼱?붿뒿?덈떎.");
     } else if (cmd == "Leave") {
-      answer.push_back(uid[id] + "님이 나갔습니다.");
+      answer.push_back(uid[id] + "?섏씠 ?섍컮?듬땲??");
     }
-    // "Change"는 메시지 생성에 영향을 주지 않으므로 무시
+    // "Change"??硫붿떆吏 ?앹꽦???곹뼢??二쇱? ?딆쑝誘濡?臾댁떆
   }
 
   return answer;
 }
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 #include <iterator>
 void print(vector<string> vec)
@@ -49,7 +49,7 @@ void print(vector<string> vec)
 int main()
 {
   print(solution( {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234", "Enter uid1234 Prodo","Change uid4567 Ryan"} ));
-  // Prodo님이 들어왔습니다. Ryan님이 들어왔습니다. Prodo님이 나갔습니다. Prodo님이 들어왔습니다.    
+  // Prodo?섏씠 ?ㅼ뼱?붿뒿?덈떎. Ryan?섏씠 ?ㅼ뼱?붿뒿?덈떎. Prodo?섏씠 ?섍컮?듬땲?? Prodo?섏씠 ?ㅼ뼱?붿뒿?덈떎.    
 
   return 0;
 }

@@ -1,4 +1,4 @@
-#include <vector>
+﻿#include <vector>
 #include <queue>
 #include <limits>
 using namespace std;
@@ -9,14 +9,14 @@ int solution(int N, vector<vector<int>> road, int K) {
   vector<bool> visited(N + 1, false);
   distances[1] = 0; 
 
-  //❶ 방향이 따로 없으므로, 양방향 모두 동일한 가중치 입력
+  //??諛⑺뼢???곕줈 ?놁쑝誘濡? ?묐갑??紐⑤몢 ?숈씪??媛以묒튂 ?낅젰
   for (const auto& r : road) {
     int a = r[0], b = r[1], cost = r[2];
     graph[a].push_back({b, cost});
     graph[b].push_back({a, cost});
   }
 
-  //❷ 출발점을 heap에 추가
+  //??異쒕컻?먯쓣 heap??異붽?
   priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;
   heap.push({0, 1}); 
 
@@ -25,7 +25,7 @@ int solution(int N, vector<vector<int>> road, int K) {
     int node = heap.top().second;
     heap.pop();
 
-    //❸ 이미 방문한 노드는 무시
+    //???대? 諛⑸Ц???몃뱶??臾댁떆
     if (visited[node]) continue; 
     visited[node] = true;
 
@@ -34,7 +34,7 @@ int solution(int N, vector<vector<int>> road, int K) {
       int next_dist = next.second;
       int cost = dist + next_dist;
 
-      //❹ 거쳐가는 노드로 가는 경로의 비용이 더 짧은 경우
+      //??嫄곗퀜媛???몃뱶濡?媛??寃쎈줈??鍮꾩슜????吏㏃? 寃쎌슦
       if (cost < distances[next_node]) {
         distances[next_node] = cost;
         heap.push({cost, next_node});
@@ -44,7 +44,7 @@ int solution(int N, vector<vector<int>> road, int K) {
 
   int count = 0;
 
-  //❺거리가 K 이하인 장소를 카운트
+  //?브굅由ш? K ?댄븯???μ냼瑜?移댁슫??
   for (int i = 1; i <= N; i++) {
     if (distances[i] <= K) count++;
   }
@@ -53,7 +53,7 @@ int solution(int N, vector<vector<int>> road, int K) {
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
@@ -61,7 +61,7 @@ using namespace std;
 int main()
 {
   
-  cout << solution(5, {{1, 2, 1}, {2, 3, 3}, {5, 2, 2}, {1, 4, 2}, {5, 3, 1}, {5, 4, 2}}, 3) << endl; //출력값 : 4
-  cout << solution(6, {{1, 2, 1}, {1, 3, 2}, {2, 3, 2}, {3, 4, 3}, {3, 5, 2}, {3, 5, 3}, {5, 6, 1}}, 4) << endl; //출력값 : 4
+  cout << solution(5, {{1, 2, 1}, {2, 3, 3}, {5, 2, 2}, {1, 4, 2}, {5, 3, 1}, {5, 4, 2}}, 3) << endl; //異쒕젰媛?: 4
+  cout << solution(6, {{1, 2, 1}, {1, 3, 2}, {2, 3, 2}, {3, 4, 3}, {3, 5, 2}, {3, 5, 3}, {5, 6, 1}}, 4) << endl; //異쒕젰媛?: 4
   return 0;
 }

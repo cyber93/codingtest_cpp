@@ -1,4 +1,4 @@
-#include <vector>
+﻿#include <vector>
 #include <algorithm> // sort, unique를 위해 선언
 
 using namespace std;

@@ -1,11 +1,11 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 
 using namespace std;
 
 vector<bool> visited;
 
-//❶ 깊이 우선 탐색(DFS)을 수행하는 함수
+//??源딆씠 ?곗꽑 ?먯깋(DFS)???섑뻾?섎뒗 ?⑥닔
 void dfs(const vector<vector<int>>& network, int node) {
   visited[node] = true;
 
@@ -21,7 +21,7 @@ int solution(int n, vector<vector<int>> computers) {
 
   int networkCount = 0; 
 
- //❷ 네트워크의 수를 확인
+ //???ㅽ듃?뚰겕???섎? ?뺤씤
   for (int i = 0; i < computers.size(); i++) {
     if (!visited[i]) { 
       dfs(computers, i);
@@ -34,7 +34,7 @@ int solution(int n, vector<vector<int>> computers) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
@@ -46,9 +46,9 @@ void init()
 int main()
 {
   
-  cout << solution(3, {{1, 1, 0}, {1, 1, 0}, {0, 0, 1}}) << endl; //출력값 : 2
+  cout << solution(3, {{1, 1, 0}, {1, 1, 0}, {0, 0, 1}}) << endl; //異쒕젰媛?: 2
   init();
-  cout << solution(3, {{1, 1, 0}, {1, 1, 1}, {0, 1, 1}}) << endl; //출력값 : 1
+  cout << solution(3, {{1, 1, 0}, {1, 1, 1}, {0, 1, 1}}) << endl; //異쒕젰媛?: 1
 
   return 0;
 }

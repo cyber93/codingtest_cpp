@@ -1,4 +1,4 @@
-#include <queue>
+﻿#include <queue>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -12,7 +12,7 @@ void bfs(int start) {
   unordered_set<int> visited;
   queue<int> q;
 
-  // ❶ 시작 노드 방문
+  // ???쒖옉 ?몃뱶 諛⑸Ц
   q.push(start);
   visited.insert(start);
   result.push_back(start);
@@ -21,7 +21,7 @@ void bfs(int start) {
     int node = q.front();
     q.pop();
 
-    // ❷ 현재 노드와 인접한 노드 중 아직 방문하지 않는 노드 방문
+    // ???꾩옱 ?몃뱶? ?몄젒???몃뱶 以??꾩쭅 諛⑸Ц?섏? ?딅뒗 ?몃뱶 諛⑸Ц
     for (int neighbor : adjList[node]) {
       if (visited.find(neighbor) == visited.end()) {
         q.push(neighbor);
@@ -33,20 +33,20 @@ void bfs(int start) {
 }
 
 vector<int> solution(vector<pair<int, int>> graph, int start) {
-  // ❸ 인접 리스트 생성
+  // ???몄젒 由ъ뒪???앹꽦
   for (auto &edge : graph) {
     int u = edge.first;
     int v = edge.second;
     adjList[u].push_back(v);
   }
 
-  // ❹ 시작 노드부터 너비 우선 탐색 시작
+  // ???쒖옉 ?몃뱶遺???덈퉬 ?곗꽑 ?먯깋 ?쒖옉
   bfs(start);
 
   return result;
 }
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iterator>
 #include <iostream>
 
@@ -69,8 +69,8 @@ void print(vector<int> vec)
 int main()
 {
   
-  print(solution({{1, 2}, {1, 3}, {2, 4}, {2, 5}, {3, 6}, {3, 7}, {4, 8}, {5, 8}, {6, 9}, {7, 9}}, 1)); //출력값 : 1 2 3 4 5 6 7 8 9
+  print(solution({{1, 2}, {1, 3}, {2, 4}, {2, 5}, {3, 6}, {3, 7}, {4, 8}, {5, 8}, {6, 9}, {7, 9}}, 1)); //異쒕젰媛?: 1 2 3 4 5 6 7 8 9
   init();
-  print(solution({{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 0}}, 1)); //출력값 : 1 2 3 4 5 0
+  print(solution({{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 0}}, 1)); //異쒕젰媛?: 1 2 3 4 5 0
   return 0;
 }

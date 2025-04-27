@@ -1,31 +1,31 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-// ❶ 각 수포자가 찍는 패턴을 정의
+// ??媛??섑룷?먭? 李띾뒗 ?⑦꽩???뺤쓽
 vector<int> firstPattern  = {1,2,3,4,5};
 vector<int> secondPattern = {2,1,2,3,2,4,2,5};
 vector<int> thirdPattern  = {3,3,1,1,2,2,4,4,5,5};
 
 vector<int> solution(vector<int> answers) {
-   // ❷ 최종적으로 가장 많이 문제를 맞힌 사람이 저장될 벡터
+   // ??理쒖쥌?곸쑝濡?媛??留롮씠 臾몄젣瑜?留욏엺 ?щ엺????λ맆 踰≫꽣
     vector<int> answer;
     
-   // ❸ 각 수포자들의 패턴대로 답안을 작성할때 문제를 맞힌 갯수가 저장될 벡터
+   // ??媛??섑룷?먮뱾???⑦꽩?濡??듭븞???묒꽦?좊븣 臾몄젣瑜?留욏엺 媛?닔媛 ??λ맆 踰≫꽣
     vector<int> matchCnt(3);
 
-    // ❹ 실제 정답과 각 수포자들의 패턴을 비교해서 맞춘 갯수
+    // ???ㅼ젣 ?뺣떟怨?媛??섑룷?먮뱾???⑦꽩??鍮꾧탳?댁꽌 留욎텣 媛?닔
       for(int i=0; i<answers.size(); i++) {
         if(answers[i] == firstPattern[i % firstPattern.size()]) matchCnt[0]++;
         if(answers[i] == secondPattern[i % secondPattern.size()]) matchCnt[1]++;
         if(answers[i] == thirdPattern[i % thirdPattern.size()]) matchCnt[2]++;
     }
-    // ❺ 가장 많이 맞춘 수포자가 얻은 점수
+    // ??媛??留롮씠 留욎텣 ?섑룷?먭? ?살? ?먯닔
     int max_score = *max_element(matchCnt.begin(),matchCnt.end());
     
-    // ❻ 가장 많이 맞춘 수포자의 번호를 저장
+    // ??媛??留롮씠 留욎텣 ?섑룷?먯쓽 踰덊샇瑜????
     for(int i = 0; i< 3; i++) {
         if(matchCnt[i] == max_score) answer.push_back(i+1);
     }
@@ -36,7 +36,7 @@ vector<int> solution(vector<int> answers) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 
 #include <iterator>
 #include <iostream>

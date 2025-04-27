@@ -1,32 +1,32 @@
-#include <queue>
+﻿#include <queue>
 
 using namespace std;
 
 int solution(int N, int K) {
     queue<int> q;
 
-    // ❶ 1부터 N까지의 번호를 큐에 추가
+    // ??1遺??N源뚯???踰덊샇瑜??먯뿉 異붽?
     for (int i = 1; i <= N; i++) {
         q.push(i);
     }
 
-  //❷ 큐에 하나의 요소가 남을 때까지 순회
+  //???먯뿉 ?섎굹???붿냼媛 ?⑥쓣 ?뚭퉴吏 ?쒗쉶
     while (q.size() > 1) { 
         for (int i = 0; i < K - 1; i++) {
-            //❸ K번째 사람을 찾기 위해 앞에서부터 제거하고 뒤에 추가
+            //??K踰덉㎏ ?щ엺??李얘린 ?꾪빐 ?욎뿉?쒕????쒓굅?섍퀬 ?ㅼ뿉 異붽?
             q.push(q.front());
             q.pop();
         }
-        //❹ K번째 사람 제거
+        //??K踰덉㎏ ?щ엺 ?쒓굅
         q.pop();
     }
 
-    //❺ 마지막으로 남은 요소 반환
+    //??留덉?留됱쑝濡??⑥? ?붿냼 諛섑솚
     return q.front();
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 int main()

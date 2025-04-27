@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <unordered_map>
 
@@ -8,27 +8,27 @@ int solution(vector<string> want, vector<int> number, vector<string> discount) {
   int answer = 0;
   
   unordered_map<string, int> wantMap;
-  //❶ want를 키로  number를 값으로 해서 wantMap을 선언
+  //??want瑜??ㅻ줈  number瑜?媛믪쑝濡??댁꽌 wantMap???좎뼵
   for (int i = 0; i < want.size(); i++) 
     wantMap[want[i]] = number[i];
 
 
   for (int i = 0; i < discount.size() - 9; i++) {
-    // ❷ i일 회원가입 시, 할인받을 수 있는 품목을 키로, 개수를 값으로 해서  discount_10d 선언
+    // ??i???뚯썝媛???? ?좎씤諛쏆쓣 ???덈뒗 ?덈ぉ???ㅻ줈, 媛쒖닔瑜?媛믪쑝濡??댁꽌  discount_10d ?좎뼵
     unordered_map<string, int> discount_10d;
 
-    // ❸  각 할인하는 품목을 키로  개수를 저장
+    // ?? 媛??좎씤?섎뒗 ?덈ぉ???ㅻ줈  媛쒖닔瑜????
     for (int j = i; j < 10 + i; j++)
       discount_10d[discount[j]]++;
 
-   // ❹ 할인하는 상품의 품목및 개수가 원하는 상품의 품목 및 개수와 일치하면 카운트 증가
+   // ???좎씤?섎뒗 ?곹뭹???덈ぉ諛?媛쒖닔媛 ?먰븯???곹뭹???덈ぉ 諛?媛쒖닔? ?쇱튂?섎㈃ 移댁슫??利앷?
     if (wantMap == discount_10d) answer++;
   }
 
   return answer;
 }
 
-//여기부터는 테스트 코드 입니다.
+//?ш린遺?곕뒗 ?뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 int main()

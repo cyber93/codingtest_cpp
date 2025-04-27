@@ -1,9 +1,9 @@
-#include <vector>
+﻿#include <vector>
 #include <algorithm>
 
 using namespace std;
 
-// ❶ 문제에서 요구하는 조건대로 실패율을 정렬하는 함수 
+// ??臾몄젣?먯꽌 ?붽뎄?섎뒗 議곌굔?濡??ㅽ뙣?⑥쓣 ?뺣젹?섎뒗 ?⑥닔 
 bool compare(pair<int, float>& a, pair<int, float>& b) {
     if (a.second == b.second) 
         return a.first < b.first;
@@ -12,21 +12,21 @@ bool compare(pair<int, float>& a, pair<int, float>& b) {
 
 vector<int> solution(int N, vector<int> stages) {
 
-    vector<int> answer; // ❷ answer는 최종 답 
-    vector<float> challenger(N + 2, 0.0);  // ❸ challenger는 각 스테이지에 도달한 적이 있는 도전자의 수  
-    vector<float> fail(N + 2, 0.0); // ❹ fail는 특정 스테이지에 실패한 도전자의 수
+    vector<int> answer; // ??answer??理쒖쥌 ??
+    vector<float> challenger(N + 2, 0.0);  // ??challenger??媛??ㅽ뀒?댁????꾨떖???곸씠 ?덈뒗 ?꾩쟾?먯쓽 ?? 
+    vector<float> fail(N + 2, 0.0); // ??fail???뱀젙 ?ㅽ뀒?댁????ㅽ뙣???꾩쟾?먯쓽 ??
 
- // ❺ 각 스테이지의 인원을 기준으로 특정 스테이지에서 실패한 인원수와, 각 스테이지에 도전한 적이 있는 인원수를 구함 
+ // ??媛??ㅽ뀒?댁????몄썝??湲곗??쇰줈 ?뱀젙 ?ㅽ뀒?댁??먯꽌 ?ㅽ뙣???몄썝?섏?, 媛??ㅽ뀒?댁????꾩쟾???곸씠 ?덈뒗 ?몄썝?섎? 援ы븿 
     for (int i = 0; i < stages.size(); i++) {
         for (int j = 1; j <= stages[i]; j++)
             challenger[j]++;
 
         fail[stages[i]]++;
     }
-  // ❻ failRatio는 실패율을 저장, first는 stage정보이고 second는 실패율 
+  // ??failRatio???ㅽ뙣?⑥쓣 ??? first??stage?뺣낫?닿퀬 second???ㅽ뙣??
     vector<pair<int, float>> failRatio(N);
 
- // ❼ 스테이지 정보 및 실패율을 저장  
+ // ???ㅽ뀒?댁? ?뺣낫 諛??ㅽ뙣?⑥쓣 ??? 
   for (int i = 0; i < N; i++) {
         failRatio[i].first = i + 1;
 
@@ -36,10 +36,10 @@ vector<int> solution(int N, vector<int> stages) {
             failRatio[i].second = fail[i + 1] / challenger[i + 1];
     }
 
-// ➑ 계산한 실패율을 문제에서 제시한 조건에 맞게 정렬
+// ??怨꾩궛???ㅽ뙣?⑥쓣 臾몄젣?먯꽌 ?쒖떆??議곌굔??留욊쾶 ?뺣젹
     sort(failRatio.begin(), failRatio.end(), compare);
 
-// ❾ 최종 답을 반환하기 위해 실패율을 저장
+// ??理쒖쥌 ?듭쓣 諛섑솚?섍린 ?꾪빐 ?ㅽ뙣?⑥쓣 ???
     for (int i = 0; i < N; i++) {
         answer.push_back(failRatio[i].first);
     }
@@ -49,7 +49,7 @@ vector<int> solution(int N, vector<int> stages) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 
 #include <iterator>
 #include <iostream>

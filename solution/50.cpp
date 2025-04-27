@@ -1,19 +1,19 @@
-#include <vector>
+﻿#include <vector>
 #include <algorithm>
 
 using namespace std;
 
-//❶ 현재 행에 이미 다른 퀸이 있는지 확인하는 함수
+//???꾩옱 ?됱뿉 ?대? ?ㅻⅨ ?몄씠 ?덈뒗吏 ?뺤씤?섎뒗 ?⑥닔
 bool isSameRow(int placedRow, int currentRow) {
   return placedRow == currentRow;
 }
 
-//❷ 대각선에 다른 퀸이 있는지 확인하는 함수
+//???媛곸꽑???ㅻⅨ ?몄씠 ?덈뒗吏 ?뺤씤?섎뒗 ?⑥닔
 bool isDiagonalAttack(int placedCol, int placedRow, int currentCol, int currentRow) {
   return abs(placedCol - currentCol) == abs(placedRow - currentRow);
 }
 
-//❸ 퀸을 안전하게 배치할 수 있는지 확인하는 함수
+//???몄쓣 ?덉쟾?섍쾶 諛곗튂?????덈뒗吏 ?뺤씤?섎뒗 ?⑥닔
 bool isSafePosition(const vector<int> &queen, int col, int row) {
   for (int i = 0; i < col; ++i) {
     if (isSameRow(queen[i], row) || isDiagonalAttack(i, queen[i], col, row)) {
@@ -23,7 +23,7 @@ bool isSafePosition(const vector<int> &queen, int col, int row) {
   return true;
 }
 
-//❹ 퀸을 배치하는 함수
+//???몄쓣 諛곗튂?섎뒗 ?⑥닔
 long long placeQueens(vector<int> &queen, int col) {
   int n = queen.size();
   if (col == n) {
@@ -32,7 +32,7 @@ long long placeQueens(vector<int> &queen, int col) {
 
   long long count = 0;
   for (int row = 0; row < n; ++row) {
-    //❺ 퀸을 놓을수 있는 위치인 경우 퀸을 놓음
+    //???몄쓣 ?볦쓣???덈뒗 ?꾩튂??寃쎌슦 ?몄쓣 ?볦쓬
     if (isSafePosition(queen, col, row)) {
       queen[col] = row;
       count += placeQueens(queen, col + 1);
@@ -45,7 +45,7 @@ long long placeQueens(vector<int> &queen, int col) {
 long long solution(int n) {
   vector<int> queen(n, -1);
 
-  //❻ 퀸을 놓을수 있는 경우의 수를 반환
+  //???몄쓣 ?볦쓣???덈뒗 寃쎌슦???섎? 諛섑솚
   return placeQueens(queen, 0);
 }
 
@@ -53,13 +53,13 @@ long long solution(int n) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-  cout << solution(4) << endl; // 출력값 : 2
+  cout << solution(4) << endl; // 異쒕젰媛?: 2
   return 0;
 }

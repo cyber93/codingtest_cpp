@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <algorithm>
 #include <bitset>
@@ -8,14 +8,14 @@ using namespace std;
 vector<int> solution(string s) {
   int transforms = 0;
   int removedZeros = 0;
-  //❶  s가 “1”이 될때까지 계속 반복
+  //?? s媛 ???앹씠 ?좊븣源뚯? 怨꾩냽 諛섎났
   while (s != "1") {
     transforms++;
 
-    //❷ '0' 개수를 세어 removedZeros에 누적
+    //??'0' 媛쒖닔瑜??몄뼱 removedZeros???꾩쟻
     removedZeros += count(s.begin(), s.end(), '0');
 
-    //❸ '1' 개수를 세고, 이를 이진수로 변환
+    //??'1' 媛쒖닔瑜??멸퀬, ?대? ?댁쭊?섎줈 蹂??
     int onesCount = count(s.begin(), s.end(), '1');
     s = bitset<32>(onesCount).to_string();
     s = s.substr(s.find('1'));
@@ -26,7 +26,7 @@ vector<int> solution(string s) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iterator>
 #include <iostream>
 
@@ -40,9 +40,9 @@ void print(vector<int> vec)
 
 int main()
 {
-  print(solution("110010101001")); //출력값 : 3 8
-  print(solution("01110")); //출력값 : 3 3
-  print(solution("1111111")); //출력값 : 4 1
+  print(solution("110010101001")); //異쒕젰媛?: 3 8
+  print(solution("01110")); //異쒕젰媛?: 3 3
+  print(solution("1111111")); //異쒕젰媛?: 4 1
   
   return 0;
 }

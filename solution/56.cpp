@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <algorithm>
 
@@ -6,7 +6,7 @@ using namespace std;
 
 int idx;
 
-//❶ 비교 함수
+//??鍮꾧탳 ?⑥닔
 bool compare (string a, string b) {
   return a[idx] == b[idx] ? a < b : a[idx] < b[idx];
 }
@@ -14,13 +14,13 @@ bool compare (string a, string b) {
 vector<string> solution(vector<string> strings, int n) {
   idx = n;
     
-  //❷ 각 문자열의 idx번째 문자를 기준으로 정렬 
+  //??媛?臾몄옄?댁쓽 idx踰덉㎏ 臾몄옄瑜?湲곗??쇰줈 ?뺣젹 
   sort (strings.begin(), strings.end(), compare);
   return strings;
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 #include <iterator>
 
@@ -34,8 +34,8 @@ void print(vector<string> vec)
 
 int main()
 {
-  print(solution({"sun", "bed", "car"}, 1)); //출력값 : car bed sun
-  print(solution({"abce", "abcd", "cdx"}, 2));  // 출력값 : abcd abce cdx
+  print(solution({"sun", "bed", "car"}, 1)); //異쒕젰媛?: car bed sun
+  print(solution({"abce", "abcd", "cdx"}, 2));  // 異쒕젰媛?: abcd abce cdx
 
   return 0;
 }

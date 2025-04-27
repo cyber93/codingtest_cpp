@@ -1,26 +1,26 @@
-#include <string>
+﻿#include <string>
 #include <algorithm>
 
 using namespace std;
 
 long long solution(long long n) {
-  //❶ 숫자를 문자열로 변환
+  //???レ옄瑜?臾몄옄?대줈 蹂??
   string str = to_string(n);
 
-  //❷ 역순으로 정렬
+  //????닚?쇰줈 ?뺣젹
   sort(str.rbegin(), str.rend());
   return stoll(str);
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-  cout << solution(118372) << endl; // 출력값 : 873211
+  cout << solution(118372) << endl; // 異쒕젰媛?: 873211
 
   return 0;
 }

@@ -1,10 +1,10 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-//❶ 문자열로 바뀐 두 수를 조합해서 크기를 비교
+//??臾몄옄?대줈 諛붾????섎? 議고빀?댁꽌 ?ш린瑜?鍮꾧탳
 bool compare(const string& lhs, const string& rhs) {
   return (lhs + rhs) > (rhs + lhs);
 }
@@ -14,32 +14,32 @@ string solution(vector<int> numbers) {
   vector<string> strings;
 
   for (auto elem : numbers) {
-    //❷ numbers의 원소를 문자열로 변형해서 푸시
+    //??numbers???먯냼瑜?臾몄옄?대줈 蹂?뺥빐???몄떆
     strings.push_back(to_string(elem));
   }
-  //❸ 정렬함수를 기준으로 정렬 
+  //???뺣젹?⑥닔瑜?湲곗??쇰줈 ?뺣젹 
   sort(strings.begin(), strings.end(), compare);
 
-  //❹ 정렬된 문자열을 앞에서 부터 추가
+  //???뺣젹??臾몄옄?댁쓣 ?욎뿉??遺??異붽?
   for (auto elem : strings) {
     answer += elem;
   }
 
-    //❺ 최종 숫자가 0이면 0을 반환하고 그렇지 않으면 answer 반환
+    //??理쒖쥌 ?レ옄媛 0?대㈃ 0??諛섑솚?섍퀬 洹몃젃吏 ?딆쑝硫?answer 諛섑솚
     return answer[0] == '0' ? "0" : answer;
 }
 
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-  cout << solution({6, 10, 2}) << endl; // 출력값 : 6210
-  cout << solution({3, 30, 34, 5, 9}) << endl; // 출력값 : 9534330
+  cout << solution({6, 10, 2}) << endl; // 異쒕젰媛?: 6210
+  cout << solution({3, 30, 34, 5, 9}) << endl; // 異쒕젰媛?: 9534330
   return 0;
 }

@@ -1,21 +1,21 @@
-#include <stack>
+﻿#include <stack>
 #include <string>
 using namespace std;
 
 string solution(int decimal) {
-   //❶입력 값이  0인 경우 바로 처리
+   //?띠엯??媛믪씠  0??寃쎌슦 諛붾줈 泥섎━
     if (decimal == 0) return "0"; 
 
     stack<int> stack;
     while (decimal > 0) {
-        //❷ 2로 나눈 나머지를 스택에 삽입
+        //??2濡??섎늿 ?섎㉧吏瑜??ㅽ깮???쎌엯
         stack.push(decimal % 2);  
         decimal /= 2;
     }
 
     string binary = "";
     while (!stack.empty()) {
-       //❸ 스택에서 차례대로 top()에 해당되는 값을 binary에 추가
+       //???ㅽ깮?먯꽌 李⑤??濡?top()???대떦?섎뒗 媛믪쓣 binary??異붽?
         binary += to_string(stack.top());  
         stack.pop();
     }
@@ -23,7 +23,7 @@ string solution(int decimal) {
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 int main()
 {

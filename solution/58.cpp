@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <algorithm>
 
@@ -9,11 +9,11 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
   vector<int> subArray;
 
   for (const auto& cmd : commands) {
-    //❶ array에서 각 cmd에 해당되는 영역만 subArray로 복사후 정렬
+    //??array?먯꽌 媛?cmd???대떦?섎뒗 ?곸뿭留?subArray濡?蹂듭궗???뺣젹
     subArray.assign(array.begin() + (cmd[0] - 1), array.begin() + cmd[1]);
     sort(subArray.begin(), subArray.end());
       
-    //❷ subArray에서 k번 째 answer에 추가
+    //??subArray?먯꽌 k踰?吏?answer??異붽?
     answer.push_back(subArray[cmd[2] - 1]);     
   }
 
@@ -22,7 +22,7 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iterator>
 #include <iostream>
 
@@ -36,7 +36,7 @@ void print(vector<int> vec)
 
 int main()
 {
-  print(solution({1, 5, 2, 6, 3, 7, 4}, {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}})); // 출력값 : 5 6 3
+  print(solution({1, 5, 2, 6, 3, 7, 4}, {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}})); // 異쒕젰媛?: 5 6 3
 
   return 0;
 }

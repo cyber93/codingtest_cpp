@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <stack>
 
@@ -6,9 +6,9 @@ using namespace std;
 
 string solution(int n, int k, vector<string> cmd) {
    
-   //❶삭제 된 행의 인덱스를 저장 
+   //?띠궘?????됱쓽 ?몃뜳?ㅻ? ???
     stack<int> deleted;
-   //❷ 각 행의 위아래에 있는 행의 인덱스를 저장 
+   //??媛??됱쓽 ?꾩븘?섏뿉 ?덈뒗 ?됱쓽 ?몃뜳?ㅻ? ???
     vector<int> up;
     vector<int> down;
 
@@ -16,12 +16,12 @@ string solution(int n, int k, vector<string> cmd) {
         up.push_back(i - 1);
         down.push_back(i + 1);
     }
-  //❸ 임시공간을 고려한 현재위치 
+  //???꾩떆怨듦컙??怨좊젮???꾩옱?꾩튂 
   k++;
 
-  //❹ 주어진 명령어를 순회  
+  //??二쇱뼱吏?紐낅졊?대? ?쒗쉶  
   for (int i = 0; i < cmd.size(); i++) {
-        //❺ 현재 위치를 삭제하고 그 다음 위치로 이동
+        //???꾩옱 ?꾩튂瑜???젣?섍퀬 洹??ㅼ쓬 ?꾩튂濡??대룞
         if (cmd[i][0] == 'C') {
             deleted.push(k);
             down[up[k]] = down[k];
@@ -31,7 +31,7 @@ string solution(int n, int k, vector<string> cmd) {
             else k = down[k];
         }
 
-        //❻ 가장 최근에 삭제한 행을 복원
+        //??媛??理쒓렐????젣???됱쓣 蹂듭썝
         else if (cmd[i][0] == 'Z') {
             int r = deleted.top();
             down[up[r]] = r;
@@ -39,7 +39,7 @@ string solution(int n, int k, vector<string> cmd) {
             deleted.pop();
         } 
 
-        //❼  현재 행을 주어진 값 만큼 위혹은 아래로 이동
+        //?? ?꾩옱 ?됱쓣 二쇱뼱吏?媛?留뚰겮 ?꾪샊? ?꾨옒濡??대룞
         else { 
             int sz = stoi(cmd[i].substr(2));
             
@@ -60,7 +60,7 @@ string solution(int n, int k, vector<string> cmd) {
 
     string answer;
    
-    //❽ 삭제된 행의 위치에 “X”, 그렇지 않은 행의 위치에 “X” 로 표시한 문자열 반환
+    //????젣???됱쓽 ?꾩튂???쏼?? 洹몃젃吏 ?딆? ?됱쓽 ?꾩튂???쏼??濡??쒖떆??臾몄옄??諛섑솚
     answer.append(n, 'O');
     while (!deleted.empty()) {
         answer[deleted.top() - 1] = 'X';
@@ -70,7 +70,7 @@ string solution(int n, int k, vector<string> cmd) {
     return answer;
 }
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 int main()

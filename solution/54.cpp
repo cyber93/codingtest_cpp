@@ -1,18 +1,18 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 
 using namespace std;
 
 string solution(string s) {
-  //❶ 알파벳 개수(26개)만큼 빈도수 배열 생성
+  //???뚰뙆踰?媛쒖닔(26媛?留뚰겮 鍮덈룄??諛곗뿴 ?앹꽦
   vector<int> counts(26, 0); 
 
-  //❷ 문자열의 각 문자에 대한 빈도수를 빈도수 배열에 저장
+  //??臾몄옄?댁쓽 媛?臾몄옄?????鍮덈룄?섎? 鍮덈룄??諛곗뿴?????
   for (char c : s) {
     counts[c - 'a']++;
   }
 
-  //❸ 빈도수 배열을 순회하면서 정렬된 문자열을 생성
+  //??鍮덈룄??諛곗뿴???쒗쉶?섎㈃???뺣젹??臾몄옄?댁쓣 ?앹꽦
   string sorted_str = "";
   for (int i = 0; i < 26; i++) {
     sorted_str += string(counts[i], i + 'a');
@@ -21,15 +21,15 @@ string solution(string s) {
   return sorted_str;
 }
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-  cout << solution("hello") << endl; // 출력값 : ehllo
-  cout << solution("algorithm") << endl; // 출력값 : aghilmort
+  cout << solution("hello") << endl; // 異쒕젰媛?: ehllo
+  cout << solution("algorithm") << endl; // 異쒕젰媛?: aghilmort
   
   return 0;
 }

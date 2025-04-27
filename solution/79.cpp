@@ -1,4 +1,4 @@
-#include <vector>
+﻿#include <vector>
 #include <string>
 #include <unordered_set>
 #include <algorithm>
@@ -8,44 +8,44 @@ using namespace std;
 
 int solution(vector<string> strs, string t) {
     int INF = numeric_limits<int>::max();
-    int n = t.length();  //❶ 타겟 문자열 t의 길이
-    vector<long long> dp(n + 1, INF);  //❷ 각 위치에서 필요한 최소 조각수를 저장할 벡터(초깃값은 INF)
-    dp[0] = 0;  //❸ 빈 문자열을 얻기 위한 최소 조각수는 0
+    int n = t.length();  //????野??얜챷???t??疫뀀챷??
+    vector<long long> dp(n + 1, INF);  //??揶??袁⑺뒄?癒?퐣 ?袁⑹뒄??筌ㅼ뮇??鈺곌퀗而??? ???館釉?甕겸돧苑??λ뜃?ュ첎誘? INF)
+    dp[0] = 0;  //?????얜챷???곸뱽 ??곕┛ ?袁る립 筌ㅼ뮇??鈺곌퀗而??롫뮉 0
     
-    unordered_set<int> sizes;  //❹ strs 조각들의 길이를 저장한 집합
+    unordered_set<int> sizes;  //??strs 鈺곌퀗而??쇱벥 疫뀀챷?좂몴????館釉?筌욌쵑鍮
     for (const auto& s : strs) {
         sizes.insert(s.length());
     }
     
-    unordered_set<string> strsSet(strs.begin(), strs.end());  //❺ strs의 원소를 저장한 집합
+    unordered_set<string> strsSet(strs.begin(), strs.end());  //??strs???癒?꺖?????館釉?筌욌쵑鍮
 
     
 
     for (int i = 1; i <= n; ++i) {
-        for (int size : sizes) {  //❻ 각 str 조각의 문자열 길이에 대하여
-            //❼ 이미 구한 해와 str 조각을 추가해서 문자열을 만들 수 있다면
+        for (int size : sizes) {  //??揶?str 鈺곌퀗而???얜챷???疫뀀챷???????뤿연
+            //????? ?닌뗫립 ??? str 鈺곌퀗而???곕떽???곴퐣 ?얜챷???곸뱽 筌띾슢諭?????덈뼄筌?
             if (i >= size && strsSet.count(t.substr(i - size, size))) {
-                dp[i] = min(dp[i], dp[i - size] + 1);  //❽ 해당 위치의 최소 조각수를 갱신
+                dp[i] = min(dp[i], dp[i - size] + 1);  //???????袁⑺뒄??筌ㅼ뮇??鈺곌퀗而??? 揶쏄퉮??
             }
         }
     }
-    return dp[n] != INF ? dp[n] : -1;  //➒ 최소 조각수를 반환(만들 수 없으면 -1)
+    return dp[n] != INF ? dp[n] : -1;  //??筌ㅼ뮇??鈺곌퀗而??? 獄쏆꼹??筌띾슢諭?????곸몵筌?-1)
 }
 
 
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?袁⑥삋 ?꾨뗀諭?????뮞???꾨뗀諭???낅빍??
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-  cout << solution({"ba", "na", "n", "a"}, "banana") << endl; //출력값 : 3
-  cout << solution({"app", "ap", "p", "l", "e", "ple", "pp"}, "apple") << endl; //출력값 : 2  
-  cout << solution({"ba", "an", "nan", "ban", "n"}, "banana") << endl; //출력값 : -1 
+  cout << solution({"ba", "na", "n", "a"}, "banana") << endl; //?곗뮆?겼첎?: 3
+  cout << solution({"app", "ap", "p", "l", "e", "ple", "pp"}, "apple") << endl; //?곗뮆?겼첎?: 2  
+  cout << solution({"ba", "an", "nan", "ban", "n"}, "banana") << endl; //?곗뮆?겼첎?: -1 
   
   return 0;
 }

@@ -1,28 +1,28 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 
 using namespace std;
 
 vector<vector<int> > solution(vector<vector<int> >arr1, vector<vector<int> >arr2)
 {
-  // ❶ 최종 행렬곱의 결과를 저장할 벡터 선언
+  // ??理쒖쥌 ?됰젹怨깆쓽 寃곌낵瑜???ν븷 踰≫꽣 ?좎뼵
     vector<vector<int> >answer;
     
-   // ❷ arr1과 arr2의 행렬곱을 수행했을때 최종적인 행렬의 크기만큼 공간을 할당
+   // ??arr1怨?arr2???됰젹怨깆쓣 ?섑뻾?덉쓣??理쒖쥌?곸씤 ?됰젹???ш린留뚰겮 怨듦컙???좊떦
    answer.assign(arr1.size(), vector<int>(arr2[1].size(), 0));
 
-// ❸ arr1의 각 행과 arr2의 각 열에 대해 반복문 수행
+// ??arr1??媛??됯낵 arr2??媛??댁뿉 ???諛섎났臾??섑뻾
   for(int i = 0;i < arr1.size(); i++) 
      for(int j = 0;j < arr2[1].size(); j++)      
          for(int k = 0;k < arr2.size(); k++)
-           // ❹ 두 행렬을 곱을 수행 
+           // ?????됰젹??怨깆쓣 ?섑뻾 
             answer[i][j] += arr1[i][k] * arr2[k][j];
 
     return answer;
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 
 #include <iterator>
 #include <iostream>

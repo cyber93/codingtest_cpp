@@ -1,4 +1,4 @@
-#include <vector>
+﻿#include <vector>
 
 using namespace std;
 
@@ -6,7 +6,7 @@ vector<int> answer;
 vector<int> ryan(11, 0);
 int maxScore = -1;
 
-//❶ 어피치와 라이언의 점수차이를 계산
+//???댄뵾移섏? ?쇱씠?몄쓽 ?먯닔李⑥씠瑜?怨꾩궛
 int calcScoreDiff(const vector<int> &apeach) {
   int scoreApeach = 0;
   int scoreLion = 0;
@@ -24,7 +24,7 @@ void dfs(const vector<int> &apeach, int score, int arrow) {
   if(score == -1 || arrow == 0) {
     ryan[10] = arrow;
     int scoreDiff = calcScoreDiff(apeach);
-    //❷ 현재 구한 점수차가 기존 최대 점수차보다 더 크고, 라이언의 점수가 더 높은 경우 갱신
+    //???꾩옱 援ы븳 ?먯닔李④? 湲곗〈 理쒕? ?먯닔李⑤낫?????ш퀬, ?쇱씠?몄쓽 ?먯닔媛 ???믪? 寃쎌슦 媛깆떊
     if(scoreDiff > 0 && maxScore < scoreDiff) {
       maxScore = scoreDiff;
       answer = ryan;
@@ -33,22 +33,22 @@ void dfs(const vector<int> &apeach, int score, int arrow) {
     return;
   }
 
-   //❸ 아직 어피치가 쏠 화살이 남은 경우
+   //???꾩쭅 ?댄뵾移섍? ???붿궡???⑥? 寃쎌슦
   if(arrow > apeach[score]) {
     ryan[score] = apeach[score] + 1;
     dfs(apeach, score - 1, arrow - apeach[score] - 1);
     ryan[score] = 0;
   }
 
-  //❹ 어피치가 화살을 사용하지 않는 경우
+  //???댄뵾移섍? ?붿궡???ъ슜?섏? ?딅뒗 寃쎌슦
   dfs(apeach, score - 1, arrow);
 }
 
 vector<int> solution(int n, vector<int> info) {
-  //❺ 10점 과녁부터 모든 조합을 확인
+  //??10??怨쇰뀅遺??紐⑤뱺 議고빀???뺤씤
   dfs(info, 10, n);
 
-  //❻ 라이언이 이길 수 있는 경우가 없는 경우
+  //???쇱씠?몄씠 ?닿만 ???덈뒗 寃쎌슦媛 ?녿뒗 寃쎌슦
   if(maxScore == -1) answer.push_back(-1);
 
   return answer;
@@ -58,7 +58,7 @@ vector<int> solution(int n, vector<int> info) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 #include <iterator>
 using namespace std;
@@ -79,10 +79,10 @@ void print(vector<int> vec)
 
 int main()
 {
-  print(solution(5, {2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0})); //출력값 : 0 2 2 0 1 0 0 0 0 0 0 
+  print(solution(5, {2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0})); //異쒕젰媛?: 0 2 2 0 1 0 0 0 0 0 0 
   init();
-  print(solution(1, {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0})); //출력값 : -1
+  print(solution(1, {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0})); //異쒕젰媛?: -1
   init();
-  print(solution(9, {0, 0, 1, 2, 0, 1, 1, 1, 1, 1, 1})); //출력값 : 1 1 2 0 1 2 2 0 0 0 0 
+  print(solution(9, {0, 0, 1, 2, 0, 1, 1, 1, 1, 1, 1})); //異쒕젰媛?: 1 1 2 0 1 2 2 0 0 0 0 
   return 0;
 }

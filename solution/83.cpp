@@ -1,20 +1,20 @@
-#include <vector>
+﻿#include <vector>
 #include <algorithm>
 
 using namespace std;
 
 int solution(vector<int> people, int limit) {
-  sort(people.begin(), people.end());  //❶ 몸무게를 오름차순으로 정렬
-  int count = 0;  //❷ 필요한 보트 개수
-  int i = 0;  //❸ 가장 가벼운 사람을 가리키는 인덱스
-  int j = people.size() - 1;  //❹ 가장 무거운 사람을 가리키는 인덱스
+  sort(people.begin(), people.end());  //??紐몃Т寃뚮? ?ㅻ쫫李⑥닚?쇰줈 ?뺣젹
+  int count = 0;  //???꾩슂??蹂댄듃 媛쒖닔
+  int i = 0;  //??媛??媛踰쇱슫 ?щ엺??媛由ы궎???몃뜳??
+  int j = people.size() - 1;  //??媛??臾닿굅???щ엺??媛由ы궎???몃뜳??
 
   while (i <= j) {
-    //❺ 가장 무거운 사람과 가장 가벼운 사람을 같이 태울 수 있으면 두 사람 모두 보트에 태움
+    //??媛??臾닿굅???щ엺怨?媛??媛踰쇱슫 ?щ엺??媛숈씠 ?쒖슱 ???덉쑝硫????щ엺 紐⑤몢 蹂댄듃???쒖?
     if (people[j] + people[i] <= limit) {
       i++;
     }
-    //❻ 무거운 사람만 태울 수 있으면 무거운 사람만 보트에 태움
+    //??臾닿굅???щ엺留??쒖슱 ???덉쑝硫?臾닿굅???щ엺留?蹂댄듃???쒖?
     j--;
     count++;
   }
@@ -23,13 +23,13 @@ int solution(vector<int> people, int limit) {
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 int main()
 {
-  cout << solution({70, 50, 80, 50}, 100) << endl; //출력값 : 3
-  cout << solution({70, 80, 50}, 100) << endl; //출력값 : 3
+  cout << solution({70, 50, 80, 50}, 100) << endl; //異쒕젰媛?: 3
+  cout << solution({70, 80, 50}, 100) << endl; //異쒕젰媛?: 3
   
   return 0;
 }

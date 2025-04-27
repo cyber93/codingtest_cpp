@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
@@ -8,12 +8,12 @@ using namespace std;
 int solution(vector<int> topping) {
   int answer = 0;
 
-  //❶ 남아있는 각 토핑의 개수
+  //???⑥븘?덈뒗 媛??좏븨??媛쒖닔
   unordered_map<int, int> topping_cnt;
-  //❷ 절반에 속한 토핑의 종류
+  //???덈컲???랁븳 ?좏븨??醫낅쪟
   unordered_set<int> half_topping;
 
-  //❸ 카운터에 각 토핑의 개수를 저장
+  //??移댁슫?곗뿉 媛??좏븨??媛쒖닔瑜????
   for (auto top : topping) {
     if (topping_cnt.find(top) == topping_cnt.end()) {
       topping_cnt[top] = 1;
@@ -22,16 +22,16 @@ int solution(vector<int> topping) {
     }
   }
 
-  //❹ 앞에서 부터 토핑을 순서대로 순회
+  //???욎뿉??遺???좏븨???쒖꽌?濡??쒗쉶
   for (int i = 0; i < topping.size(); i++) {
-    //❺ 절반에 속하는 토핑에 추가하고, 남은 토핑개수에서 제외
+    //???덈컲???랁븯???좏븨??異붽??섍퀬, ?⑥? ?좏븨媛쒖닔?먯꽌 ?쒖쇅
     half_topping.insert(topping[i]);
     topping_cnt[topping[i]]--;
-     //❻ 현재 토핑이 남아있지 않은 경우 남은 토핑 목록에서 삭제
+     //???꾩옱 ?좏븨???⑥븘?덉? ?딆? 寃쎌슦 ?⑥? ?좏븨 紐⑸줉?먯꽌 ??젣
     if (topping_cnt[topping[i]] == 0) {
       topping_cnt.erase(topping[i]);
     }
-    //❼ 공평한 경우 카운팅
+    //??怨듯룊??寃쎌슦 移댁슫??
     if (topping_cnt.size() == half_topping.size()) {
       answer++;
     }
@@ -41,7 +41,7 @@ int solution(vector<int> topping) {
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
@@ -49,8 +49,8 @@ using namespace std;
 
 int main()
 {
-  cout << solution({1, 2, 1, 3, 1, 4, 1, 2}) << endl; // 출력값 : 2
-  cout << solution({1, 2, 3, 1, 4}) << endl; // 출력값 : 0
+  cout << solution({1, 2, 1, 3, 1, 4, 1, 2}) << endl; // 異쒕젰媛?: 2
+  cout << solution({1, 2, 3, 1, 4}) << endl; // 異쒕젰媛?: 0
   
   return 0;
 }

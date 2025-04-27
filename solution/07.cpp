@@ -1,14 +1,14 @@
-#include <string>
+﻿#include <string>
 
 using namespace std;
 
-bool visited[11][11][4]; // ❶ 특정 좌표에서 특정 방향으로 이동한 적이 있는지 체크하는 배열
+bool visited[11][11][4]; // ???뱀젙 醫뚰몴?먯꽌 ?뱀젙 諛⑺뼢?쇰줈 ?대룞???곸씠 ?덈뒗吏 泥댄겕?섎뒗 諛곗뿴
 
-// ❷ 상하좌우로 좌표를 이동할 때 필요한 좌표의 오프셋 배열 
+// ???곹븯醫뚯슦濡?醫뚰몴瑜??대룞?????꾩슂??醫뚰몴???ㅽ봽??諛곗뿴 
 int dx[] = {0, 1, 0, -1};
 int dy[] = {-1, 0, 1, 0};
 
-// ❸ 각 문자에 해당하는 오프셋 배열의 인덱스를 반환
+// ??媛?臾몄옄???대떦?섎뒗 ?ㅽ봽??諛곗뿴???몃뜳?ㅻ? 諛섑솚
 int todir(char dir) {
     int ret;
     if (dir == 'U') ret = 0;
@@ -18,12 +18,12 @@ int todir(char dir) {
     return ret;
 }
 
-// ❹ 특정좌표가 주어진 좌표평면을 벗어나는지 확인
+// ???뱀젙醫뚰몴媛 二쇱뼱吏?醫뚰몴?됰㈃??踰쀬뼱?섎뒗吏 ?뺤씤
 bool isNotValid(int x, int y)
 {
     return x < 0 || y < 0 || x > 10 || y > 10;
 }
-// ❺ 현재와 반대 방향의 오프셋 배열 인덱스 반환
+// ???꾩옱? 諛섎? 諛⑺뼢???ㅽ봽??諛곗뿴 ?몃뜳??諛섑솚
 int opposite_direction(int dir)
 {
     return (dir+2) % 4;
@@ -32,26 +32,26 @@ int opposite_direction(int dir)
 int solution(string dirs)
 {
     int answer = 0;
-    int x = 5, y = 5; // ❻ 시작 좌표를 설정
+    int x = 5, y = 5; // ???쒖옉 醫뚰몴瑜??ㅼ젙
 
     for (auto c : dirs) {
-     // ❼ 반복문을 순회하며 nx, ny는  x, y가 dirs대로 움직였을 때 위치가 됨 
+     // ??諛섎났臾몄쓣 ?쒗쉶?섎ŉ nx, ny?? x, y媛 dirs?濡??吏곸??????꾩튂媛 ??
         int dir = todir(c);
         int nx = x + dx[dir];
         int ny = y + dy[dir];
-        // ❽ 좌표평면을 벗어난 경우 더 이상 이동하지 않음
+        // ??醫뚰몴?됰㈃??踰쀬뼱??寃쎌슦 ???댁긽 ?대룞?섏? ?딆쓬
         if (isNotValid(nx,ny)) {
             continue;
         }
 
-        // ❾  다음 좌표가 아직 방문하지 않은 좌표인 경우
+        // ?? ?ㅼ쓬 醫뚰몴媛 ?꾩쭅 諛⑸Ц?섏? ?딆? 醫뚰몴??寃쎌슦
         if(visited[y][x][dir] == false) {
-          // ❿ 방문이 중복 체크되지 않도록 해당 경로의 양방향을 방문 체크
+          // ??諛⑸Ц??以묐났 泥댄겕?섏? ?딅룄濡??대떦 寃쎈줈???묐갑?μ쓣 諛⑸Ц 泥댄겕
             visited[y][x][dir] = true;
             visited[ny][nx][opposite_direction(dir)] = true;
             answer++;
         }
-      // ⓫ 현재좌표를 이동한 좌표로 업데이트
+      // ???꾩옱醫뚰몴瑜??대룞??醫뚰몴濡??낅뜲?댄듃
         x = nx;
         y = ny;
     }
@@ -61,7 +61,7 @@ int solution(string dirs)
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 int main()

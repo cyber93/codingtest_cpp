@@ -1,16 +1,16 @@
-#include <vector>
+﻿#include <vector>
 #include <algorithm>
 #include <cmath>
 using namespace std;
 
-//❶ 각 물건의 단위 무게당 가치를 계산하여 items 벡터에 추가
+//??媛?臾쇨굔???⑥쐞 臾닿쾶??媛移섎? 怨꾩궛?섏뿬 items 踰≫꽣??異붽?
 void calculate_unit_value(vector<vector<double>> &items) {
   for (auto &item : items) {
     item.push_back(item[1] / item[0]);
   }
 }
 
-//❷ 단위 무게당 가치가 높은 순으로 물건을 정렬
+//???⑥쐞 臾닿쾶??媛移섍? ?믪? ?쒖쑝濡?臾쇨굔???뺣젹
 void sort_by_unit_value(vector<vector<double>> &items) {
   sort(items.begin(), items.end(), [](const vector<double> &a, const vector<double> &b) {
     return a[2] > b[2];
@@ -18,20 +18,20 @@ void sort_by_unit_value(vector<vector<double>> &items) {
 }
 
 double knapsack(vector<vector<double>> &items, double weight_limit) {
-  double total_value = 0; //❸ 선택한 물건들의 총 가치를 저장
-  double remaining_weight = weight_limit; //❹남은 무게 한도를 저장
+  double total_value = 0; //???좏깮??臾쇨굔?ㅼ쓽 珥?媛移섎? ???
+  double remaining_weight = weight_limit; //?밸궓? 臾닿쾶 ?쒕룄瑜????
 
-  //❺ items을 순회하며 물건을 선택
+  //??items???쒗쉶?섎ŉ 臾쇨굔???좏깮
   for (const auto &item : items) {
     if (item[0] <= remaining_weight) {
-      //❻ 남은 무게 한도 내에서 물건을 통째로 선택
+      //???⑥? 臾닿쾶 ?쒕룄 ?댁뿉??臾쇨굔???듭㎏濡??좏깮
       total_value += item[1];
       remaining_weight -= item[0];
     } else {
-      //❼ 남은 무게 한도가 물건의 무게보다 작으면 쪼개서 일부분만 선택
+      //???⑥? 臾닿쾶 ?쒕룄媛 臾쇨굔??臾닿쾶蹂대떎 ?묒쑝硫?履쇨컻???쇰?遺꾨쭔 ?좏깮
       double fraction = remaining_weight / item[0];
       total_value += item[1] * fraction;
-      break; //❽ 이미 배낭의 무게 한도를 모두 사용한 경우
+      break; //???대? 諛곕궘??臾닿쾶 ?쒕룄瑜?紐⑤몢 ?ъ슜??寃쎌슦
     }
   }
   return total_value;
@@ -40,17 +40,17 @@ double knapsack(vector<vector<double>> &items, double weight_limit) {
 double solution(vector<vector<double>> items, double weight_limit) {
   calculate_unit_value(items);
   sort_by_unit_value(items);
-  //➒ 배낭의 무게 한도 내에서 담을 수 있는 물건들의 최대 가치를 반환(소수점 둘째자리 까지만 나타냄)
+  //??諛곕궘??臾닿쾶 ?쒕룄 ?댁뿉???댁쓣 ???덈뒗 臾쇨굔?ㅼ쓽 理쒕? 媛移섎? 諛섑솚(?뚯닔???섏㎏?먮━ 源뚯?留??섑???
   return round(knapsack(items, weight_limit) * 100) / 100;
 }
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 int main()
 {
-  cout << solution({{10, 19}, {7, 10}, {6, 10}}, 15) << endl; //출력값 : 27.3333
-  cout << solution({{10, 60}, {20, 100}, {30, 120}}, 50) << endl; //출력값 : 240
+  cout << solution({{10, 19}, {7, 10}, {6, 10}}, 15) << endl; //異쒕젰媛?: 27.3333
+  cout << solution({{10, 60}, {20, 100}, {30, 120}}, 50) << endl; //異쒕젰媛?: 240
   
   return 0;
 }

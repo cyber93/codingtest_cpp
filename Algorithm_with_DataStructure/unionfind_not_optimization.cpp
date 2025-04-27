@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 
 const int MAX_SIZE = 10;  // 예제에서는 최대 요소 수를 10으로 설정
 

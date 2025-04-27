@@ -1,12 +1,12 @@
-#include <vector>
+﻿#include <vector>
 
 using namespace std;
 
 vector<vector<int>> multiply(vector<vector<int>> matrix1, vector<vector<int>> matrix2) {
-  //❶ 결과값을 저장할 벡터를  0으로 초기화
+  //??寃곌낵媛믪쓣 ??ν븷 踰≫꽣瑜? 0?쇰줈 珥덇린??
   vector<vector<int>> result(3, vector<int>(3, 0));
 
-  //❷ 행렬 곱셈을 수행합니다.
+  //???됰젹 怨깆뀍???섑뻾?⑸땲??
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
       for (int k = 0; k < 3; k++) {
@@ -19,10 +19,10 @@ vector<vector<int>> multiply(vector<vector<int>> matrix1, vector<vector<int>> ma
 }
 
 vector<vector<int>> transpose(vector<vector<int>> matrix) {
-  //❸ 결과 행렬을 0으로 초기화합니다.
+  //??寃곌낵 ?됰젹??0?쇰줈 珥덇린?뷀빀?덈떎.
   vector<vector<int>> result(3, vector<int>(3, 0));
 
-  //❹ 전치 행렬을 계산합니다.
+  //???꾩튂 ?됰젹??怨꾩궛?⑸땲??
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
       result[j][i] = matrix[i][j];
@@ -33,17 +33,17 @@ vector<vector<int>> transpose(vector<vector<int>> matrix) {
 }
 
 vector<vector<int>> solution(vector<vector<int>> matrix1, vector<vector<int>>matrix2) {
-  //❺ 주어진 두 행렬을 곱합니다.
+  //??二쇱뼱吏????됰젹??怨깊빀?덈떎.
   vector<vector<int>> multiplied = multiply(matrix1, matrix2);
 
-  //❻ 곱셈 결과의 전치 행렬을 계산합니다.
+  //??怨깆뀍 寃곌낵???꾩튂 ?됰젹??怨꾩궛?⑸땲??
   vector<vector<int>> transposed = transpose(multiplied);
   return transposed;
 }
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iterator>
 #include <iostream>
 
@@ -72,7 +72,7 @@ int main()
                     }
                     ));
     /*
-    출력값 :
+    異쒕젰媛?:
     30 84 138 
     24 69 114 
     18 54 90 
@@ -90,7 +90,7 @@ int main()
                     }
                     ));
     /*
-    출력값: 
+    異쒕젰媛? 
     76 56 158 
     40 31 74 
     76 60 134 

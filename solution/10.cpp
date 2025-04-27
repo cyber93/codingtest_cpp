@@ -1,36 +1,36 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 #include <stack>
 #include <unordered_map>
 using namespace std;
 
-// ❶ 닫힌 괄호의 짝을 바로 확인할 수 있도록 맵 선언 
+// ???ロ엺 愿꾪샇??吏앹쓣 諛붾줈 ?뺤씤?????덈룄濡?留??좎뼵 
 unordered_map<char, char> bracketPair = {
         {')', '('},
         {']', '['},
         {'}', '{'}
 };
 
-//❷현자 인자로 받은 문자열 기준 괄호짝이 맞는지 확인
+//?룻쁽???몄옄濡?諛쏆? 臾몄옄??湲곗? 愿꾪샇吏앹씠 留욌뒗吏 ?뺤씤
 bool isValid(string& s, int start) {
     stack<char> stk;
     unsigned int  sz = s.size();
     
-//❸ 문자열을 순회하면서
+//??臾몄옄?댁쓣 ?쒗쉶?섎㈃??
     for(int i = 0 ; i < sz ; i++) {
       char ch = s[(start + i) % sz];
-      //❹ ch가 닫힌 괄호 인경우
+      //??ch媛 ?ロ엺 愿꾪샇 ?멸꼍??
         if(bracketPair.count(ch)) {
-           // ❺ 스택이 비었거나 top 원소가 ch와 짝이 맞는 열린괄호가 아닌 경우 false 반환
+           // ???ㅽ깮??鍮꾩뿀嫄곕굹 top ?먯냼媛 ch? 吏앹씠 留욌뒗 ?대┛愿꾪샇媛 ?꾨땶 寃쎌슦 false 諛섑솚
             if(stk.empty() || stk.top() != bracketPair[ch]) return false;
-           //❻ ch와 짝이 맞는 열린괄호일경우 해당 열린괄호를 제거
+           //??ch? 吏앹씠 留욌뒗 ?대┛愿꾪샇?쇨꼍???대떦 ?대┛愿꾪샇瑜??쒓굅
             stk.pop();
         } else {
-           //❼ 열린 괄호일경우 스택이 푸시
+           //???대┛ 愿꾪샇?쇨꼍???ㅽ깮???몄떆
             stk.push(ch);
         }
     }
-   //❽스택이 비었으면 true를 반환(비었다는것은 괄호 짝이 맞다는 것을 의미)
+   //?쎌뒪?앹씠 鍮꾩뿀?쇰㈃ true瑜?諛섑솚(鍮꾩뿀?ㅻ뒗寃껋? 愿꾪샇 吏앹씠 留욌떎??寃껋쓣 ?섎?)
     return stk.empty();
 }
 
@@ -38,7 +38,7 @@ int solution(string s) {
     int answer = 0;
     int n = s.size();
     
-   //❾ 문자열을 rotation하면서 괄호짝이 맞으면 answer를 1증가 시킴
+   //??臾몄옄?댁쓣 rotation?섎㈃??愿꾪샇吏앹씠 留욎쑝硫?answer瑜?1利앷? ?쒗궡
     for(int i = 0; i < n; i++) {
         answer += isValid(s,i);
     }
@@ -46,7 +46,7 @@ int solution(string s) {
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 int main()
 {

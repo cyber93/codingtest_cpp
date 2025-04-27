@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 
 int main() {
     // 기본 데이터 타입의 크기 출력

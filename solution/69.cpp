@@ -1,14 +1,14 @@
-#include <string>
+﻿#include <string>
 #include <vector>
 
 using namespace std;
 
 vector<int> solution(vector<string> keyinput, vector<int> board)
 {
-    //❶ 현재 위치를 나타 내는 크기가 2이고 값이 모두 0인 벡터 선언
+    //???꾩옱 ?꾩튂瑜??섑? ?대뒗 ?ш린媛 2?닿퀬 媛믪씠 紐⑤몢 0??踰≫꽣 ?좎뼵
     vector<int> v(2,0);
     
-    //❷ 키 입력순으로 캐릭터 이동
+    //?????낅젰?쒖쑝濡?罹먮┃???대룞
     for(string s : keyinput)
     {
         if     (s=="up"    && v[1]<+board[1]/2) v[1]++;
@@ -21,7 +21,7 @@ vector<int> solution(vector<string> keyinput, vector<int> board)
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iterator>
 #include <iostream>
 
@@ -35,8 +35,8 @@ void print(vector<int> vec)
 
 int main()
 {
-  print(solution({"left", "right", "up", "right", "right"}, {11, 11})); //출력값 : 2 1 
-  print(solution({"down", "down", "down", "down", "down"}, {7, 9})); //출력값 : 0 -4  
+  print(solution({"left", "right", "up", "right", "right"}, {11, 11})); //異쒕젰媛?: 2 1 
+  print(solution({"down", "down", "down", "down", "down"}, {7, 9})); //異쒕젰媛?: 0 -4  
   
   return 0;
 }

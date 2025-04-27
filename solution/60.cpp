@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <algorithm>
 #include <vector>
 
@@ -8,15 +8,15 @@ int counts[100001] = {};
 
 void updateCounts(const string& s) {
   string numStr;
-  //❶ 인자로 받은 문자열을 순회
+  //???몄옄濡?諛쏆? 臾몄옄?댁쓣 ?쒗쉶
   for (char ch : s) {
-    //❷ 현재 문자가 숫자인 경우
+    //???꾩옱 臾몄옄媛 ?レ옄??寃쎌슦
     if (isdigit(ch)) {
       numStr += ch;
-    //❸ 현재 문자가 숫자가 아닌 경우
+    //???꾩옱 臾몄옄媛 ?レ옄媛 ?꾨땶 寃쎌슦
     } else {
       if (!numStr.empty()) {
-        //❹ 계수정렬을 하기 위해 각 숫자의 개수를 저장 
+        //??怨꾩닔?뺣젹???섍린 ?꾪빐 媛??レ옄??媛쒖닔瑜????
         counts[stoi(numStr)]++;
         numStr.clear();
       }
@@ -26,21 +26,21 @@ void updateCounts(const string& s) {
 
 vector<int> solution(string s) {
   vector<int> answer;
-  //❺ 집합이 담긴 문자열의 각 원소를 계수정렬
+  //??吏묓빀???닿릿 臾몄옄?댁쓽 媛??먯냼瑜?怨꾩닔?뺣젹
   updateCounts(s);
 
   vector<pair<int, int>> freqPairs;
   for (int i = 1; i <= 100000; i++) {
-    //❻ 집합에 있는 원소인 경우 (개수, 값) 형식으로 푸시
+    //??吏묓빀???덈뒗 ?먯냼??寃쎌슦 (媛쒖닔, 媛? ?뺤떇?쇰줈 ?몄떆
     if (counts[i] > 0) {
       freqPairs.push_back({counts[i], i});
     }
   }
 
-  //❼ 각 원소의 개수를 기준으로 내림차순 정렬
+  //??媛??먯냼??媛쒖닔瑜?湲곗??쇰줈 ?대┝李⑥닚 ?뺣젹
   sort(freqPairs.rbegin(), freqPairs.rend());
 
-  //➑ 원소의 개수로 내림차순 정렬된 벡터를 순회하며 원소를 푸시
+  //???먯냼??媛쒖닔濡??대┝李⑥닚 ?뺣젹??踰≫꽣瑜??쒗쉶?섎ŉ ?먯냼瑜??몄떆
   for (const auto& p : freqPairs) {
     answer.push_back(p.second);
   }
@@ -49,7 +49,7 @@ vector<int> solution(string s) {
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iterator>
 #include <iostream>
 
@@ -70,15 +70,15 @@ void print(vector<int> vec)
 
 int main()
 {
-  print(solution("{{2}, {2, 1}, {2, 1, 3}, {2, 1, 3, 4}}")); // 출력값 : 2 1 3 4
+  print(solution("{{2}, {2, 1}, {2, 1, 3}, {2, 1, 3, 4}}")); // 異쒕젰媛?: 2 1 3 4
   init();
-  print(solution("{{1, 2, 3}, {2, 1}, {1, 2, 4, 3}, {2}}")); // 출력값 : 2 1 3 4
+  print(solution("{{1, 2, 3}, {2, 1}, {1, 2, 4, 3}, {2}}")); // 異쒕젰媛?: 2 1 3 4
   init();
-  print(solution("{{20, 111}, {111}}")); // 출력값 : 111 20
+  print(solution("{{20, 111}, {111}}")); // 異쒕젰媛?: 111 20
   init();
-  print(solution("{{123}}")); // 출력값 : 123
+  print(solution("{{123}}")); // 異쒕젰媛?: 123
   init();
-  print(solution("{{4, 2, 3}, {3}, {2, 3, 4, 1}, {2, 3}}")); // 출력값 : 3 2 4 1 
+  print(solution("{{4, 2, 3}, {3}, {2, 3, 4, 1}, {2, 3}}")); // 異쒕젰媛?: 3 2 4 1 
   
   return 0;
 }

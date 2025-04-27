@@ -1,4 +1,4 @@
-#include <vector>
+﻿#include <vector>
 #include <queue>
 #include <cstring>
 #include <limits>
@@ -26,7 +26,7 @@ int solution(vector<vector<int>> board) {
   memset(dist, -1, sizeof(dist));
   queue<Path> q;
 
-  //❶ 시작 지점의 방향에 따라 비용이 달라질수 있으므로 모든 경우의 수 고려  
+  //???쒖옉 吏?먯쓽 諛⑺뼢???곕씪 鍮꾩슜???щ씪吏덉닔 ?덉쑝誘濡?紐⑤뱺 寃쎌슦????怨좊젮  
   q.push({0, 0, 1});
   q.push({0, 0, 3});
       
@@ -39,17 +39,17 @@ int solution(vector<vector<int>> board) {
 
     int lastCost = dist[y][x][dir];
       
-    //❷ 현재 지점을 기준으로 이동가능한 지점 확인  
+    //???꾩옱 吏?먯쓣 湲곗??쇰줈 ?대룞媛?ν븳 吏???뺤씤  
     for (int i = 0; i < 4; i++) {
       int ny = y + dy[i];
       int nx = x + dx[i];
         
-      //❸ 다음 이동할 후보 지점이 board안에 있는 좌표이고, 도려가 연결되 있는 경우
+      //???ㅼ쓬 ?대룞???꾨낫 吏?먯씠 board?덉뿉 ?덈뒗 醫뚰몴?닿퀬, ?꾨젮媛 ?곌껐???덈뒗 寃쎌슦
       if (!isValid(ny, nx, boardSize) || board[ny][nx]) continue;
 
       int newCost = lastCost + (i == dir ? STRAIGHT_COST : CORNER_COST);
       
-      //❹ 아직 후보 지점을 방문하지 않았거나, 이전에 구했던 비용보다 더 적은 비용인 경우
+      //???꾩쭅 ?꾨낫 吏?먯쓣 諛⑸Ц?섏? ?딆븯嫄곕굹, ?댁쟾??援ы뻽??鍮꾩슜蹂대떎 ???곸? 鍮꾩슜??寃쎌슦
       if (dist[ny][nx][i] == -1 || dist[ny][nx][i] > newCost) {
         dist[ny][nx][i] = newCost;
         q.push({ny, nx, i});
@@ -57,7 +57,7 @@ int solution(vector<vector<int>> board) {
     }
   }
 
-  //❺ 도착 지점까지 가는 모든 경로 중 최소를 선택
+  //???꾩갑 吏?먭퉴吏 媛??紐⑤뱺 寃쎈줈 以?理쒖냼瑜??좏깮
   int answer = INF;
   for (int i = 0; i < 4; i++) {
     if (dist[boardSize - 1][boardSize - 1][i] != -1) {
@@ -70,7 +70,7 @@ int solution(vector<vector<int>> board) {
 
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iostream>
 
 using namespace std;
@@ -78,11 +78,11 @@ using namespace std;
 int main()
 {
   
-  cout << solution({{0, 0, 0}, {0, 0, 0}, {0, 0, 0}}) << endl; //출력값 : 900
+  cout << solution({{0, 0, 0}, {0, 0, 0}, {0, 0, 0}}) << endl; //異쒕젰媛?: 900
   cout << solution({{0, 0, 0, 0, 0, 0, 0, 1}, {0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 1, 0, 0}, {0, 0, 0, 0, 1, 0, 0, 0},{0, 0, 0, 1, 0, 0, 0, 1}, {0, 0, 1, 0, 0, 0, 1, 0}, {0, 1, 0, 0, 0, 1, 0, 0}, {1, 0, 0, 0, 0, 0, 0, 0}}
-) << endl; //출력값 : 3800
-  cout << solution({{0, 0, 1, 0}, {0, 0, 0, 0}, {0, 1, 0, 1}, {1, 0, 0, 0}}) << endl; //출력값 : 2100
-  cout << solution({{0, 0, 0, 0, 0, 0}, {0, 1, 1, 1, 1, 0}, {0, 0, 1, 0, 0, 0}, {1, 0, 0, 1, 0, 1}, {0, 1, 0, 0, 0, 1},{0, 0, 0, 0, 0, 0}}) << endl; //출력값 : 3200
+) << endl; //異쒕젰媛?: 3800
+  cout << solution({{0, 0, 1, 0}, {0, 0, 0, 0}, {0, 1, 0, 1}, {1, 0, 0, 0}}) << endl; //異쒕젰媛?: 2100
+  cout << solution({{0, 0, 0, 0, 0, 0}, {0, 1, 1, 1, 1, 0}, {0, 0, 1, 0, 0, 0}, {1, 0, 0, 1, 0, 1}, {0, 1, 0, 0, 0, 1},{0, 0, 0, 0, 0, 0}}) << endl; //異쒕젰媛?: 3200
 
   return 0;
 }

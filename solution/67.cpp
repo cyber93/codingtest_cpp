@@ -1,27 +1,27 @@
-#include <vector>
+﻿#include <vector>
 #include <cmath>
 
 using namespace std;
 
 vector<int> solution(int green, int white) {
-  // ❶ 격자의 총 개수 (파란색 격자 + 흰색 격자)
+  // ??寃⑹옄??珥?媛쒖닔 (?뚮???寃⑹옄 + ?곗깋 寃⑹옄)
   int total_size = green + white;
-  // ❷ 세로 길이의 범위는 3부터 (파란색 격자 + 흰색 격자)의 제곱근
+  // ???몃줈 湲몄씠??踰붿쐞??3遺??(?뚮???寃⑹옄 + ?곗깋 寃⑹옄)???쒓낢洹?
   for (int vertical = 3; vertical <= sqrt(total_size); ++vertical) {
-    // ❸ 사각형 구성이 되는지 확인
+    // ???ш컖??援ъ꽦???섎뒗吏 ?뺤씤
     if (total_size % vertical == 0) {
-      int horizontal = total_size / vertical; // ❹ 사각형의 가로 길이
-      // ❺ 카펫 형태로 만들 수 있는지 확인
+      int horizontal = total_size / vertical; // ???ш컖?뺤쓽 媛濡?湲몄씠
+      // ??移댄렖 ?뺥깭濡?留뚮뱾 ???덈뒗吏 ?뺤씤
       if (green == (horizontal + vertical - 2) * 2) {
-        return {horizontal, vertical}; // ❻ {가로 길이, 세로 길이}
+        return {horizontal, vertical}; // ??{媛濡?湲몄씠, ?몃줈 湲몄씠}
       }
     }
   }
-  return {}; // ❼ 만약 답을 찾지 못했다면 빈 벡터를 반환
+  return {}; // ??留뚯빟 ?듭쓣 李얠? 紐삵뻽?ㅻ㈃ 鍮?踰≫꽣瑜?諛섑솚
 }
 
 
-//아래 코드는 테스트 코드 입니다.
+//?꾨옒 肄붾뱶???뚯뒪??肄붾뱶 ?낅땲??
 #include <iterator>
 #include <iostream>
 
@@ -35,9 +35,9 @@ void print(vector<int> vec)
 
 int main()
 {
-  print(solution(10, 2)); //출력값 : 4 3
-  print(solution(8, 1)); //출력값 : 3 3
-  print(solution(24, 24)); //출력값 : 8 6
+  print(solution(10, 2)); //異쒕젰媛?: 4 3
+  print(solution(8, 1)); //異쒕젰媛?: 3 3
+  print(solution(24, 24)); //異쒕젰媛?: 8 6
   
   return 0;
 }
